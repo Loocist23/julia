@@ -36,8 +36,8 @@ function main()
 
     ajouter_module(modules, "A", ["B", "C"])
     ajouter_module(modules, "B", ["C"])
-    ajouter_module(modules, "C", [])
-    ajouter_module(modules, "D", ["A", "B"])
+    ajouter_module(modules, "C", ["D"])
+    ajouter_module(modules, "D", ["A"])
 
     afficher_modules(modules)
 end
