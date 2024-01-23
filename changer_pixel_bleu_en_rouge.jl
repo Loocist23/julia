@@ -25,10 +25,11 @@ using ImageMagick
 
 # la fonction qui change les pixels bleus en rouges
 function changer_pixel_bleu_en_rouge(img::Array{RGBA{N0f8}, 2})
-    for (i, j) in CartesianIndices(img)
+    for index in CartesianIndices(img)
+        i, j = Tuple(index)
         pixel = img[i, j]
         if pixel.b > pixel.r && pixel.b > pixel.g
-            img[i, j] = RGBA(1, 0, 0, pixel.alpha)
+            img[i, j] = RGB(1, 0, 0)
         end
     end
 end
@@ -36,13 +37,13 @@ end
 # Charger l'image
 img = load("test.png")
 
-# Convertir en RGB si nécessaire
-if eltype(img) == RGBA{N0f8}
-    img = RGB.(img)
-end
+# Pas besoin de convertir en RGB
+# if eltype(img) == RGBA{N0f8}
+#     img = RGB.(img)
+# end
 
 # Appliquer la fonction sur l'image
 changer_pixel_bleu_en_rouge(img)
 
 # Sauvegarder l'image modifiée
-save("rouge_to_bleu.png", img)
+save("bleu_to_rouge.png", img)
