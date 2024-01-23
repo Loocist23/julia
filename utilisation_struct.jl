@@ -1,7 +1,7 @@
 # Définition de la structure mutable pour un module
 mutable struct MonModule
     nom::String
-    dépendances::Vector{String}  a 
+    dépendances::Vector{String}  a       a
 end
 
 # Fonction pour ajouter un module à la collection
