@@ -19,8 +19,11 @@ Petit rappel supplémentaire sans trop rentrer dans le code: en codant en Julia,
 using Images
 using ImageMagick
 
+# dossier de l'image
+dossier = "images/"
+
 # Charger l'image*
-img = load("test.png")
+img = load("$dossier/test.png")
 
 # Inverser les composantes rouge et bleu
 for index in CartesianIndices(img)
@@ -30,4 +33,4 @@ for index in CartesianIndices(img)
 end
 
 # Sauvegarder l'image modifiée
-save("rouge_to_bleu.png", img)
+save("$dossier/rouge_to_bleu.png", img)

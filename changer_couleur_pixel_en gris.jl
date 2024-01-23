@@ -21,8 +21,11 @@ Bonne chance, et que la force du code soit avec toi ! 🖖💻
 using Images
 using ImageMagick
 
+# dossier de l'image
+dossier = "images/"
+
 # Charger l'image
-img = load("test.png")
+img = load("$dossier/test.png")
 
 # Convertir en nuances de gris
 img_gray = Gray.(img)
@@ -32,4 +35,4 @@ threshold_value = 0.5 # Tu peux ajuster cette valeur
 binary_img = img_gray .> threshold_value
 
 # Sauvegarde l'image résultante
-save("nuance_de_gris.png", binary_img)
+save("$dossier/nuance_de_gris.png", binary_img)

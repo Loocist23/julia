@@ -30,8 +30,11 @@ function changer_pixel_rouge_en_vert(img::Array{RGBA{N0f8}, 2})
     end
 end
 
+# dossier de l'image
+dossier = "images/"
+
 # Charger l'image
-img = load("test.png")
+img = load("$dossier/test.png")
 
 # Pas besoin de convertir en RGB
 # if eltype(img) == RGBA{N0f8}
@@ -42,4 +45,4 @@ img = load("test.png")
 changer_pixel_rouge_en_vert(img)
 
 # Sauvegarder l'image modifiée
-save("rouge_to_vert.png", img)
+save("$dossier/rouge_to_vert.png", img)
