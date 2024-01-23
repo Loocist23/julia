@@ -30,6 +30,25 @@ function afficher_modules(modules::Dict{String, MonModule})
     end
 end
 
+# Fonction pour retirer un module de la collection et ses dépendances
+function retirer_module(modules::Dict{String, MonModule}, nom::String)
+    if haskey(modules, nom)
+        # Récupérer le module à retirer
+        module_a_retirer = modules[nom]
+
+        # Retirer le module de la collection
+        delete!(modules, nom)
+
+        # Retirer toutes les dépendances qui pointent vers le module
+        for (nom_module, _module) in modules
+            if nom in _module.dépendances
+                _module.dépendances = filter(x -> x != nom, _module.dépendances)
+            end
+        end
+    end
+end
+
+
 # Fonction principale pour tester les fonctionnalités
 function main()
     modules = Dict{String, MonModule}()
@@ -39,6 +58,12 @@ function main()
     ajouter_module(modules, "C", ["D"])
     ajouter_module(modules, "D", ["A"])
 
+    println("Modules initiaux:")
+    afficher_modules(modules)
+
+    retirer_module(modules, "A")
+
+    println("Modules après retrait de A:")
     afficher_modules(modules)
 end
 
