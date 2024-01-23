@@ -1,44 +1,21 @@
 #=
-Voici un exercice de manipulation d'image en Julia :
+Exercice en Julia : Effet de seuillage sur une image en nuances de gris
 
-Objectif : Créer un filtre qui convertira une image en nuances de gris puis appliquera un effet de seuil, qui transformera chaque pixel soit en noir, soit en blanc, basé sur une valeur de seuil.
+Objectifs :
 
-Pour commencer, tu auras besoin d'installer le package Images en Julia :
+Chargement d'une image : Commence par charger une image de ton choix. Cette image devrait être colorée pour que tu puisses voir la transformation.
 
-using Pkg
-Pkg.add("Images")
+Conversion en nuances de gris : Transforme cette image en une image en nuances de gris. Cela t'aidera à simplifier l'effet de seuillage par la suite.
 
+Application d'un effet de seuil : Définis une valeur de seuil. Pour chaque pixel de ton image en nuances de gris, tu devras déterminer si sa valeur est au-dessus ou en dessous de ce seuil.
 
-Après avoir ajouté le package, voici un petit plan d'attaque pour ton script Julia :
+Création d'une image binaire : Basé sur ce seuil, chaque pixel devra être mis soit en noir, soit en blanc, créant ainsi une image avec seulement deux couleurs.
 
-Charge l'image originale en couleur.
-Convertis l'image en nuances de gris.
-Parcours chaque pixel de l'image en nuances de gris.
-Si la valeur du pixel est supérieure à ton seuil (par exemple 0.5), convertis ce pixel en blanc.
-Si la valeur est inférieure ou égale à ton seuil, convertis ce pixel en noir.
-Sauvegarde l'image résultante.
+Sauvegarde de l'image : Enregistre ton oeuvre sous un nouveau fichier pour pouvoir admirer ton travail et le partager fièrement avec les membres de Geek Zone.
 
-Voici un exemple de code de base qui pourrait t'aider à démarrer :
+Le challenge ici est de comprendre comment ces étapes interagissent et comment les implémenter dans le langage Julia, en utilisant les bibliothèques et les structures de données appropriées. Cela va sans doute nécessiter un peu de recherche et beaucoup de tâtonnements, mais n'est-ce pas là tout le fun de la programmation ?
 
-using Images
-
-# Charger l'image
-img = load("chemin_vers_mon_image.jpg")
-
-# Convertir en nuances de gris
-img_gray = Gray.(img)
-
-# Appliquer l'effet de seuil
-threshold_value = 0.5 # Tu peux ajuster cette valeur
-binary_img = img_gray .> threshold_value
-
-# Sauvegarde l'image résultante
-save("chemin_vers_mon_nouveau_fichier_image.jpg", binary_img)
-
-
-N'oublie pas de remplacer "chemin_vers_mon_image.jpg" et "chemin_vers_mon_nouveau_fichier_image.jpg" par les chemins appropriés pour ton image.
-
-Cela te donnera un bon départ pour jouer avec le traitement des images en Julia. Amuse-toi bien et j'espère que DomiGeek appréciera ton art numérique en nuances de Julia! 🎨👩‍🎨
+Bonne chance, et que la force du code soit avec toi ! 🖖💻
 =#
 
 using Images
@@ -55,4 +32,4 @@ threshold_value = 0.5 # Tu peux ajuster cette valeur
 binary_img = img_gray .> threshold_value
 
 # Sauvegarde l'image résultante
-save("test2.png", binary_img)
+save("nuance_de_gris.png", binary_img)
