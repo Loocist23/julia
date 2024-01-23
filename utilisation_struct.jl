@@ -1,3 +1,30 @@
+#=
+
+Exercice : Arbre des dépendances de modules
+
+Dans l'univers du développement logiciel, il est courant de travailler avec des modules qui dépendent les uns des autres. Tes talents de Julia sont donc sollicités pour créer un programme qui manipule les dépendances de modules.
+
+Voici la tâche :
+
+Écris un programme en Julia qui définit un module comme une structure comprenant un nom et une liste de dépendances (les noms des modules dont il dépend). Puis, implémente les fonctions suivantes :
+
+ajouter_module(modules, nom, dépendances): ajoute un nouveau module (si ce module n'existe pas déjà) à une collection existante de modules.
+retirer_module(modules, nom): retire un module de la collection, s'il existe, et toutes les dépendances qui pointent vers lui.
+afficher_dépendances(modules, nom): affiche la liste des dépendances pour un module donné.
+afficher_modules(modules): affiche tous les modules dans la collection avec leurs dépendances.
+
+Pour corser un peu le défi :
+
+Tu peux t'assurer que lors de l'ajout d'un module, si les dépendances mentionnées n'existent pas, elles soient créées sans dépendances.
+Si tu retires un module, vérifie également que les modules qui dépendent uniquement de ce module soient également retirés ou leurs dépendances mises à jour.
+Gère les erreurs potentielles comme les noms de modules invalides.
+
+Cet exercice te permet de travailler avec des collections, des structures, des chaînes de caractères et plus encore. Tu apprendras également à gérer la complexité au fur et à mesure que le graphe des dépendances se complexifie.
+
+Que la force des algos soit avec toi, loocist ! Et si jamais tu te sens perdu dans la forêt des arbres binaires, n'hésite pas à envoyer un signal de détresse ! 🌲📡
+
+=#
+
 # Définition de la structure mutable pour un module
 mutable struct MonModule
     nom::String
