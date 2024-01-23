@@ -48,6 +48,16 @@ function retirer_module(modules::Dict{String, MonModule}, nom::String)
     end
 end
 
+# Fonction pour afficher les dépendances d'un module donné
+function afficher_dépendances(modules::Dict{String, MonModule}, nom::String)
+    if haskey(modules, nom)
+        module_cible = modules[nom]
+        println("Dépendances du module $nom:")
+        println(module_cible.dépendances)
+    else
+        println("Le module $nom n'existe pas.")
+    end
+end
 
 # Fonction principale pour tester les fonctionnalités
 function main()
@@ -60,11 +70,17 @@ function main()
 
     println("Modules initiaux:")
     afficher_modules(modules)
+    println("Les dépendances de A sont:")
+    afficher_dépendances(modules, "A")
 
     retirer_module(modules, "A")
 
     println("Modules après retrait de A:")
     afficher_modules(modules)
+    println("Les dépendances de A sont:")
+    afficher_dépendances(modules, "A")
+
+
 end
 
 # Exécuter la fonction principale
